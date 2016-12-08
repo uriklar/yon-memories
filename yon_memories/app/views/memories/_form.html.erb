@@ -1,0 +1,31 @@
+<%= form_for @memory, url: memories_path, html: { multipart: true, class: 'form-style-1' } do |f| %>
+  <% if @memory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@memory.errors.count, "error") %> prohibited this memory from being saved:</h2>
+
+      <ul>
+      <% @memory.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "השם שלך" %><br>
+    <%= f.text_field :name, class: 'field-long' %>
+  </div>
+  <div class="field">
+    <%= f.label :story, "הזכרון שלך" %><br>
+    <%= f.text_area :story, class: 'field-long field-textarea' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :photo, "תמונה שלך עם יונת?"%><br>
+    <%= f.file_field :photo %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "פרסם את הזיכרון" %>
+  </div>
+<% end %>

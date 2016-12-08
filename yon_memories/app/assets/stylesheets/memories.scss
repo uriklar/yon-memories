@@ -1,0 +1,75 @@
+// Place all the styles related to the memories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#title {
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 30px;
+}
+
+#memories-container {
+	display: flex;
+	justify-content: center;
+	height: 300px;
+	background-color: #ECECEA;
+}
+
+.memory {
+	display: none;
+
+	.image-container {
+		height: 300px;
+		width: 300px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&.selected {
+		display: block;
+
+		&.stopped {
+			display: flex;
+			width: 100%;
+			padding-left: 20px;
+			padding-right: 20px;
+
+			.story-container {
+				display: flex;
+				flex: 2;
+				padding-left: 20px;
+				flex-direction: column;
+			}
+		}
+	}
+
+	.story-container {
+		display: none;
+
+		.name {
+			font-size: 20px;
+			text-decoration: underline;
+			margin-bottom : 20px;
+		}
+
+		.story {
+			line-height: 16px;
+			font-size: 14px;
+		}
+	}
+}
+
+#actions-container {
+	padding-top: 20px;
+	text-align: center;
+
+	.ph-button {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+#new-memory {
+	padding: 40px;
+}

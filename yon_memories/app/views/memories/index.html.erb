@@ -1,0 +1,40 @@
+<script type="text/javascript">
+   var memories_count = <%= @memories.count %>;
+
+   $( document ).ready(function() {
+      init(memories_count);
+   });
+   
+</script>
+
+<p id="notice"><%= notice %></p>
+
+<div id="title">
+  רגעים עם יונת 
+</div>
+
+<div id="memories-container">
+  <% @memories.each do |memory| %>
+    <div class="memory">
+      <div class="image-container">
+        <%= image_tag memory.photo.url(:medium) %>
+      </div>
+      
+
+      <div class="story-container">
+        <div class="name"><%= memory.name %></div>
+        <div class="story">
+          <%= memory.story %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div id="actions-container">
+  <a id="stop" class='ph-button ph-btn-red'>עצור</a>
+  <a id="continue" class='ph-button ph-btn-green'>המשך</a>
+  <div id="new-memory">
+    <%= link_to 'העלה זיכרון משלך', new_memory_path, class: 'ph-button ph-btn-blue' %>
+  </div>
+</div>
